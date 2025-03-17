@@ -1,0 +1,23 @@
+enum AreaDoEnem {
+    MATEMATICA, NATUREZA, HUMANAS, LINGUAGENS    
+}
+
+entity Aluno {
+    nome String required
+    cursoDesejado String required
+}
+
+entity Historico {
+    nota Integer required
+    area AreaDoEnem required
+}
+
+entity Meta {
+    nota Integer required
+    area AreaDoEnem required
+}
+
+relationship OneToMany {
+    Aluno{historicos} to Historico{aluno} 
+    Aluno{metas} to Meta{aluno}
+}
